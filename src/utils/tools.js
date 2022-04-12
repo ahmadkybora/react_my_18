@@ -4,15 +4,16 @@ export const ImgStyle = {}
 
 export const Form = () => {}
 
-export const Input = ({ type, name, className, id=null, value=null, placeholder=null, style=null }) => {
+export const Input = ({ type, name, className, id=null, value=null, onChange=null, placeholder=null, style=null }) => {
     return (
         <input 
             type={type}
             name={name}
-            value={value} 
+            defaultValue={value} 
             className={className}
             id={id}
             placeholder={placeholder}
+            onChange={onChange}
             style={style}
         />
     )

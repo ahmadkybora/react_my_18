@@ -8,6 +8,8 @@ import Navbar from "./components/panel/layouts/navbar";
 import { LogoutRoute } from './middlewares/isLogout';
 import Login from "./components/auth/login";
 import Register from "./components/auth/register";
+import { routes } from "./routes/index";
+import Footer from "./components/layouts/footer";
 
 function App() {
     return (
@@ -15,12 +17,20 @@ function App() {
           <ToastContainer />
           <Navbar />
           <main className="container-fluid">
-            <Switch>
+            {/* <Switch>
               <Route path="/" exact component={Home} />
               <LogoutRoute path="/login" component={Login} />
               <LogoutRoute path="/register" component={Register} />
-            </Switch>
+            </Switch> */}
+
+          {routes.map(route => (
+            <Route key={route.path} exact path={route.path} component={route.component} />
+          ))}
+
           </main>
+          <div className="col">
+            <Footer />
+          </div>
         </React.Fragment>
       );
 }
